@@ -32,4 +32,4 @@ This project requires the .NET framework to launch. Be sure to use a terminal th
 
 [MIT](https://opensource.org/licenses/MIT)
 
-Copyright (c) _2022_ _Cameron Abel_
+Copyright (c) _2023_ _Cameron Abel_
