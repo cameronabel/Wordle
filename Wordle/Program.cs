@@ -9,6 +9,8 @@ namespace Game
     public static void Main()
     {
       Console.WriteLine("Welcome, I am a Wordle clone!");
+      Wordle newWordle = new Wordle();
+      Console.WriteLine(newWordle.Word);
     }
   }
 }

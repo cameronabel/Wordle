@@ -13,5 +13,11 @@ namespace Game.Tests
       Wordle newWordle = new Wordle();
       Assert.AreEqual(typeof(Wordle), newWordle.GetType());
     }
+    [TestMethod]
+    public void WordleConstructor_SetsTargetWord_StringOfLengthFive()
+    {
+      Wordle newWordle = new Wordle();
+      Assert.AreEqual(5, newWordle.Word.Length);
+    }
   }
 }
