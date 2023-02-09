@@ -7,8 +7,8 @@ namespace Game.Models
 {
   public class Wordle
   {
-    private static string[] _allWords = File.ReadAllLines(@"Assets/Words.txt");
-    private static HashSet<string> _setOfAllWords = new HashSet<string>(_allWords);
+    private static string[] _allValidWords = File.ReadAllLines(@"Assets/ValidWords.txt");
+    private static HashSet<string> _setOfAllWords = new HashSet<string>(File.ReadAllLines(@"Assets/Words.txt"));
     public string Word { get; }
     public static bool IsValidWord(string word)
     {
@@ -75,7 +75,7 @@ namespace Game.Models
     public Wordle()
     {
       Random rand = new Random();
-      Word = _allWords[rand.Next(_allWords.Length)].ToUpper();
+      Word = _allValidWords[rand.Next(_allValidWords.Length)].ToUpper();
     }
   }
 }

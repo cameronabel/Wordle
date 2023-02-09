@@ -15,6 +15,7 @@
 
 <ItemGroup>
   <Content Include="..\Wordle\Assets\Words.txt" Link="Assets\Words.txt" CopyToOutputDirectory="PreserveNewest" />
+  <Content Include="..\Wordle\Assets\ValidWords.txt" Link="Assets\ValidWords.txt" CopyToOutputDirectory="PreserveNewest" />
 </ItemGroup>
 
 </Project>
