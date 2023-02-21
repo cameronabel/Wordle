@@ -33,10 +33,11 @@ namespace Game.Models
       return "none";
 
     }
-    public void JudgeWord(string guess)
+    public List<string> JudgeWord(string guess)
     {
       Dictionary<char, int> timesGuessed = new Dictionary<char, int>() { };
       int i = 0;
+      List<string> colors = new List<string>() { };
       foreach (char c in guess)
       {
         int value;
@@ -48,28 +49,10 @@ namespace Game.Models
         {
           timesGuessed[c] = 1;
         }
-        Console.ResetColor();
-        string judgedColor = JudgeLetter(c, i, timesGuessed[c]);
-        if (judgedColor == "green")
-        {
-          Console.BackgroundColor = ConsoleColor.Green;
-          Console.ForegroundColor = ConsoleColor.Black;
-        }
-        else if (judgedColor == "yellow")
-        {
-          Console.BackgroundColor = ConsoleColor.DarkYellow;
-          Console.ForegroundColor = ConsoleColor.Black;
-        }
-        else
-        {
-          Console.ResetColor();
-        }
-        Console.Write($"\x1b[1m{c}");
-        Console.ResetColor();
-        Console.Write(" ");
+        colors.Add(JudgeLetter(c, i, timesGuessed[c]));
         i++;
       }
-      Console.WriteLine();
+      return colors;
 
     }
     public Wordle()

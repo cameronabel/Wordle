@@ -30,7 +30,8 @@ namespace Game
           guessedWords.Add(guess);
           foreach (string word in guessedWords)
           {
-            newWordle.JudgeWord(word.ToUpper());
+            List<string> colors = newWordle.JudgeWord(word.ToUpper());
+            WriteWord(word.ToUpper(), colors);
           }
           if (guess.ToUpper() == newWordle.Word)
           {
@@ -53,6 +54,30 @@ namespace Game
           Environment.Exit(0);
         }
       }
+    }
+    public static void WriteWord(string guess, List<string> colors)
+    {
+      for (int i = 0; i < 5; i++)
+      {
+        if (colors[i] == "green")
+        {
+          Console.BackgroundColor = ConsoleColor.Green;
+          Console.ForegroundColor = ConsoleColor.Black;
+        }
+        else if (colors[i] == "yellow")
+        {
+          Console.BackgroundColor = ConsoleColor.DarkYellow;
+          Console.ForegroundColor = ConsoleColor.Black;
+        }
+        else
+        {
+          Console.ResetColor();
+        }
+        Console.Write($"\x1b[1m{guess[i]}");
+        Console.ResetColor();
+        Console.Write(" ");
+      }
+      Console.WriteLine();
     }
   }
 }
